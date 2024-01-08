@@ -1,3 +1,18 @@
+import openai
+
+openai.api_key = "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"
+
+def ask_chatgpt(question):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Adjust model as needed
+        prompt=question,
+        max_tokens=150,  # Adjust response length as needed
+        n=1,
+        stop=None,
+        temperature=0.7,
+    )
+    return response.choices[0].text.strip()
+
 
 print("Hi! my name is yobot and i am here to help you through your university journey :")
 print("i'm going to ask you a few questions so i can get to know you a little better.")
@@ -44,9 +59,13 @@ if (question in questions):
 elif(question=="bye"):
     print("nice to meet you ,have a nice day")
 else:
-    print("sorry i dont understand this question. for more info contact our service manager. ")      
-
+    try:
+        answer = ask_chatgpt(question)
+        print(answer)  # Or send the answer to the user
+    except Exception as e:
+            print("Sorry, there was an issue. Please try again later.")
+            print(f"Error details: {str(e)}")
 # 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
     
 #import pyautogui
-    
+    #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
