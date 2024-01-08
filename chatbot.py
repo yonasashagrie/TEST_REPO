@@ -1,6 +1,5 @@
 import openai
-
-openai.api_key = "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"
+openai.api_key = "your api here"
 
 def ask_chatgpt(question):
     response = openai.ChatCompletion.create(
@@ -65,7 +64,5 @@ else:
     except Exception as e:
             print("Sorry, there was an issue. Please try again later.")
             print(f"Error details: {str(e)}")
-# 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
+
     
-#import pyautogui
-    #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
